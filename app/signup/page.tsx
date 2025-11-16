@@ -28,7 +28,7 @@ const Login = () => {
     } = useForm<FormFields>({
         resolver: zodResolver(schema),
     });
-                const router = useRouter();
+    const router = useRouter();
 
 
     const onsubmit: SubmitHandler<FormFields> = async (data) => {
