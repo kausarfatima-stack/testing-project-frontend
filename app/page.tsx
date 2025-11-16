@@ -1,6 +1,3 @@
-import Image from "next/image";
-import { redirect, RedirectType } from 'next/navigation'
-import Signup from "./signup/page";
 import Login from "./login/page";
 
 export default function Home() {
