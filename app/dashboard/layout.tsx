@@ -1,3 +1,5 @@
+import HeaderButton from "../components/headerButton";
+
 export default function DashboardLayout({
     children,
 }: Readonly<{
@@ -17,7 +19,7 @@ export default function DashboardLayout({
                         <a href="#" className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-700 group">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 group-hover:transform group-hover:rotate-90" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                <path strokeLinecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
                             Bugs
@@ -25,15 +27,15 @@ export default function DashboardLayout({
                         <a href="#" className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-700 group">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 group-hover:transform group-hover:rotate-90" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                <path strokeLinecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
                             Projects
                         </a>
-                         <a href="#" className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-700 group">
+                        <a href="#" className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-700 group">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 group-hover:transform group-hover:rotate-90" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                <path strokeLinecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
                             Logout
@@ -42,26 +44,34 @@ export default function DashboardLayout({
                 </div>
             </div>
             <div className="flex flex-col flex-1 overflow-y-auto">
-			<div className="flex items-center justify-between h-16 bg-white border-b border-gray-200">
-				<div className="flex items-center px-4">
-					<label htmlFor="menu-toggle"
-						className="md:hidden mr-4 bg-gray-800 text-white p-2 rounded focus:outline-none cursor-pointer">
-						<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-500" fill="none"
-							viewBox="0 0 24 24" stroke="white">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								d="M4 6h16M4 12h16M4 18h16" />
-						</svg>
-					</label>
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="h-6 w-6">
-						<path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-					</svg>					  
-					<input className="mx-4 w-full border rounded-md px-4 py-2" type="text" placeholder="Search"/>
-				</div>
-			</div>
-			<div className="p-4">
-                {children}
-			</div>
-		</div>
+                <div className="flex items-center justify-between h-18 bg-white border-b border-gray-200">
+                    <div className="flex items-center px-4">
+                        <label htmlFor="menu-toggle"
+                            className="md:hidden mr-4 bg-gray-800 text-white p-2 rounded focus:outline-none cursor-pointer">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-500" fill="none"
+                                viewBox="0 0 24 24" stroke="white">
+                                <path strokeLinecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </label>
+                        <span>
+                            <h3 className="ml-8 text-2xl w-40 font-bold">View Bugs</h3>
+                        </span>
+                        <input className="ml-4 w-full border rounded-md px-4 py-2" type="text" placeholder="Search" />
+                        <button className="bg-gray-800 text-white p-2 rounded focus:outline-none cursor-pointer">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path strokeLinecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <HeaderButton/>
+                </div>
+                <div className="p-4">
+                    {children}
+                </div>
+            </div>
         </div>
     </>;
 }
