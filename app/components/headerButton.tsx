@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import DialogForm from './dialogform';
+import BugDialogForm from './bugdialogform';
+import ProjectDialogForm from './projectdialogform';
 
 export default function HeaderButton() {
     const [isOpen, setIsOpen] = React.useState(false);
@@ -16,7 +17,7 @@ export default function HeaderButton() {
             <button  onClick={handleOpen} className="bg-gray-800 text-white p-2 rounded focus:outline-none cursor-pointer mx-6 px-4">
                 + Add Bug
             </button>
-            <DialogForm open={isOpen} onClose={handleClose} />
+            <BugDialogForm open={isOpen} onClose={handleClose} />
         </div>
     );
 }

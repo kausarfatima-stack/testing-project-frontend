@@ -19,7 +19,7 @@ export default function DashboardLayout({
                         <a href="#" className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-700 group">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 group-hover:transform group-hover:rotate-90" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
-                                <path strokeLinecap="round" stroke-linejoin="round" stroke-width="2"
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                                     d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
                             Bugs
@@ -27,7 +27,7 @@ export default function DashboardLayout({
                         <a href="#" className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-700 group">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 group-hover:transform group-hover:rotate-90" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
-                                <path strokeLinecap="round" stroke-linejoin="round" stroke-width="2"
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                                     d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
                             Projects
@@ -35,7 +35,7 @@ export default function DashboardLayout({
                         <a href="#" className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-700 group">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 group-hover:transform group-hover:rotate-90" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
-                                <path strokeLinecap="round" stroke-linejoin="round" stroke-width="2"
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                                     d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
                             Logout
@@ -50,7 +50,7 @@ export default function DashboardLayout({
                             className="md:hidden mr-4 bg-gray-800 text-white p-2 rounded focus:outline-none cursor-pointer">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-500" fill="none"
                                 viewBox="0 0 24 24" stroke="white">
-                                <path strokeLinecap="round" stroke-linejoin="round" stroke-width="2"
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                                     d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
                         </label>
@@ -61,7 +61,7 @@ export default function DashboardLayout({
                         <button className="bg-gray-800 text-white p-2 rounded focus:outline-none cursor-pointer">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
-                                <path strokeLinecap="round" stroke-linejoin="round" stroke-width="2"
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
                         </button>

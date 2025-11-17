@@ -1,4 +1,9 @@
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
+
 export default function DashboardPage() {
+        const bugs = useSelector((state: RootState) => state.bug);
+
     return <>
     <div className="grid gap-8 xl:grid-cols-3 sm:grid-cols-2 lg:gap-12 p-6 md:p-10 mt-4">
     <div

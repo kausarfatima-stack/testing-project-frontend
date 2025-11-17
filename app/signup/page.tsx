@@ -3,6 +3,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
+import { RootState } from "../redux/store";
+import { addUser } from "../redux/authSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const schema = z.object({
     username: z.string("Name can not be empty").min(3, { message: "Name must be at least 3 characters" }),
@@ -20,6 +24,8 @@ const schema = z.object({
 type FormFields = z.infer<typeof schema>;
 
 const Login = () => {
+    const auth = useSelector((state: RootState) => state.auth);
+    const dispatch = useDispatch();
     const {
         register,
         handleSubmit,
@@ -35,6 +41,12 @@ const Login = () => {
         try {
             await new Promise((resolve) => setTimeout(resolve, 1000));
             console.log(data);
+            dispatch(addUser({
+                name: data.username,
+                email: data.email,
+                password: data.password,
+                role: data.role
+            }))
             router.push('/login');
         } catch (error) {
             setError("root", {
@@ -42,6 +54,10 @@ const Login = () => {
             })
         }
     }
+
+    useEffect(() => {
+        console.log("Updated Redux auth state:", auth);
+    }, [auth]);
 
     return (
         <div className="bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
