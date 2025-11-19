@@ -1,18 +1,26 @@
+'use client';
+import { useSelector } from "react-redux";
 import HeaderButton from "../components/headerButton";
+import { RootState } from "../redux/store";
+import { useEffect } from "react";
 
 export default function DashboardLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const currentUser = useSelector((state: RootState) => state.auth.currentUser);
+    useEffect(() => {
+                console.log("Updated Redux bug state:", currentUser);
+            }, [currentUser]);
     return <>
         <div className="flex h-screen bg-gray-100">
             <input type="checkbox" id="menu-toggle" className="hidden peer" />
             <div className="hidden peer-checked:flex md:flex flex-col w-64 bg-gray-800 transition-all duration-300 ease-in-out">
                 <div className="flex flex-col items-center justify-between bg-gray-900 px-4">
                     <img className="w-24 h-24 mb-6 rounded-full mt-3" src="/favicon.ico" alt="Bonnie image" />
-                    <h5 className="mb-0.5 text-xl font-semibold tracking-tight text-heading text-white">Kausar Fatima</h5>
-                    <span className="text-sm text-body text-white mb-3">Developer</span>
+                    <h5 className="mb-0.5 text-xl font-semibold tracking-tight text-heading text-white">{currentUser ? currentUser.username : "Loading..."}</h5>
+                    <span className="text-sm text-body text-white mb-3">{currentUser ? currentUser.role : "Loading..."}</span>
                 </div>
                 <div className="flex flex-col flex-1">
                     <nav className="flex-1 px-2 py-4 bg-gray-800">
@@ -51,7 +59,7 @@ export default function DashboardLayout({
                             <h3 className="ml-8 text-2xl w-40 font-bold">View Projects</h3>
                         </span>
                     </div>
-                    <HeaderButton isBug={false} />
+                    {currentUser!.role=="Manager" && <HeaderButton isBug={false} />}
                 </div>
                 <div className="p-4">
                     {children}

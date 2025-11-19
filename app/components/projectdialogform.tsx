@@ -3,8 +3,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { addProject } from "../redux/projectSlice";
-import { RootState } from "../redux/store";
+import { createProject, fetchProjectsByUserEmail } from "../redux/projectSlice";
+import { RootState, useAppDispatch } from "../redux/store";
 
 import { z } from "zod";
 import { useEffect } from "react";
@@ -23,7 +23,8 @@ const schema = z.object({
 type FormFields = z.infer<typeof schema>;
 const ProjectDialogForm = ({ open, onClose }: DialogProps) => {
     const project = useSelector((state: RootState) => state.project);
-    const dispatch = useDispatch();
+    const { currentUser } = useSelector((state: RootState) => state.auth);
+    const dispatch = useAppDispatch();
     const {
         register,
         handleSubmit,
@@ -40,12 +41,11 @@ const ProjectDialogForm = ({ open, onClose }: DialogProps) => {
 
     const onsubmit: SubmitHandler<FormFields> = async (data) => {
         try {
-            await new Promise((resolve) => setTimeout(resolve, 1000));
             console.log(data);
-            dispatch(addProject({
+            await dispatch(createProject({
                 name: data.name,
                 description: data.desc,
-                creator: data.creator
+                creatorEmail: currentUser!.email
             }));
             onClose;
         } catch (error) {

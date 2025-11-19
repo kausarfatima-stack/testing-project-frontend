@@ -13,6 +13,7 @@ export default function HeaderButton({ isBug }: HeaderButtonProps) {
     const handleOpen = () => {
         setIsOpen(true);
     }
+    
     const handleClose = () => {
         setIsOpen(false);
     }

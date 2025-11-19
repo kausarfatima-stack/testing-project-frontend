@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
 import { useDispatch, useSelector } from "react-redux";
-import { addBug } from "../redux/bugSlice"; 
 import { RootState } from "../redux/store";
 
 interface DialogProps {
